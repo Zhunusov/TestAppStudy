@@ -1,0 +1,50 @@
+﻿@using Resources;
+
+<div id="modal_editing_per_info" class="w3-modal">
+    <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:400px">
+
+        <div class="w3-center">
+            <br>
+            <span onclick="Close_modal_editing()" class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
+            <img src="~/Images/user.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
+            <div class="w3-container w3-padding-16">
+                <label><b>@Resource.Status: <i id="role_status"></i></b></label>
+            </div>
+        </div>
+
+        <form class="w3-container" id="editing_per_info_admin_form" style="display:none">
+            <div class="w3-section">
+                <label><b>@Resource.UserName</b></label>
+                <input class="w3-input w3-border w3-margin-bottom" type="text" id="username_admin_form" disabled>
+                <label><b>@Resource.FirstName</b></label>
+                <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="@Resource.Ph_firstname" id="firstname_admin_form" required>
+                <label><b>@Resource.LastName</b></label>
+                <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="@Resource.LastName" id="lastname_admin_form" required>
+                <label><b>@Resource.Patronymic</b></label>
+                <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="@Resource.Ph_patronymic" id="patronymic_admin_form">
+                <button class="w3-button w3-block w3-theme w3-section w3-padding" type="submit" id="save_admin_form">@Resource.Btn_save</button>
+            </div>
+        </form>
+
+        <form class="w3-container" id="editing_per_info_stu_form" style="display:none">
+            <div class="w3-section">
+                <label><b>@Resource.UserName</b></label>
+                <input class="w3-input w3-border w3-margin-bottom" type="text" id="username_stu_form" disabled>
+                <label><b>@Resource.FirstName</b></label>
+                <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="@Resource.Ph_firstname" id="firstname_stu_form" required>
+                <label><b>@Resource.LastName</b></label>
+                <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="@Resource.LastName" id="lastname_stu_form" required>
+                <label><b>@Resource.Patronymic</b></label>
+                <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="@Resource.Ph_patronymic" id="patronymic_stu_form">
+                <label><b>@Resource.Study_begining</b></label>
+                <input class="w3-input w3-border w3-margin-bottom" type="text" id="studystart_stu_form" placeholder="@Resource.Ph_studystart" required>
+                <button class="w3-button w3-block w3-theme w3-section w3-padding" type="submit" id="save_stu_form">@Resource.Btn_save</button>
+            </div>
+        </form>
+
+        <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+            <button onclick="Close_modal_editing()" type="button" class="w3-button w3-red">@Resource.Btn_cancel</button>
+        </div>
+
+    </div>
+</div> 

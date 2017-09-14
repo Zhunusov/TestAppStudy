@@ -1,0 +1,33 @@
+﻿@using Resources;
+<div class="w3-container" id="assign_teach_to_stu_container" style="display:none">
+    <div class="w3-row w3-container">
+        <select id="assign_teach_students" class="w3-col w3-input w3-border"  style="width:50%">
+           
+        </select>
+    </div>     
+</div>
+<div class="w3-container" id="assign_teach_to_stu_info_container" style="display:none">
+    <label class="w3-container"><b>@Resource.Student_subj_list:</b></label>
+    <div id="assigned_subjects">
+        
+    </div>
+   
+    <label class="w3-container"><b>@Resource.Assign_subject:</b></label>   
+    <div class="w3-row">        
+        <div class="w3-col w3-container" style="width:50%">
+            <select class="w3-input w3-border" id="stu_all_subj_list">
+                
+            </select>
+        </div>
+        <div class="w3-col w3-container" style="width:50%">
+            <select class="w3-col w3-input w3-border w3-container" id="teacher_subj_list" disabled>
+               
+            </select>
+        </div>
+    </div>    
+    <div class="w3-row">        
+        <div class="w3-col w3-container w3-right" style="width:50%">
+            <button class="w3-block w3-btn w3-theme" id="btn_assign_teacher">@Resource.Assing_subj_to_teach</button>
+        </div>
+    </div>
+</div>

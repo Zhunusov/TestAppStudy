@@ -1,0 +1,30 @@
+﻿@using Resources;
+
+<div id="id02" class="w3-modal">
+    <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:400px">
+
+        <div class="w3-center">
+            <br>
+            <span onclick="document.getElementById('id02').style.display='none'" class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
+            <img src="~/Images/user.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
+        </div>
+
+        <form class="w3-container" id="login_form">
+            <div class="w3-section">
+                <label><b>@Resource.UserName</b></label>
+                <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="@Resource.Ph_username" name="username" id="username_login" required>
+                <label><b>@Resource.Password</b></label>
+                <input class="w3-input w3-border" type="password" placeholder="@Resource.Ph_password" name="psw" id="psw_login" required>
+                <button class="w3-button w3-block w3-theme w3-section w3-padding" type="submit" id="login">@Resource.Btn_login</button>
+            </div>
+        </form>
+
+        <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+            <button onclick="document.getElementById('id02').style.display='none'" type="button" class="w3-button w3-red">@Resource.Btn_cancel</button>
+            <div class="w3-right">
+                <button onclick="change_to_register_modal()" type="button" class="w3-button w3-light-grey" title="@Resource.Tt_register">@Resource.Btn_not_have_account</button>
+            </div>
+        </div>
+
+    </div>
+</div>  

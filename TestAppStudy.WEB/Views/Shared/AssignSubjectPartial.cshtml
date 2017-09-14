@@ -1,0 +1,42 @@
+﻿@using Resources;
+<div class="w3-container"  id="assigning_teacher_container" style="display:none">
+    <div class="w3-row w3-container">
+        <select id="assigning_teacher" class="w3-col w3-input w3-border" style="width:50%">
+           
+        </select>
+    </div>    
+</div>
+<div class="w3-container" id="assigning_teacher_info_container" style="display:none">    
+    <label class="w3-container"><b>@Resource.Personal_info:</b></label>
+    <div class="w3-row">
+        <div class="w3-col w3-container" id="assigning_teacher_personal_info">
+            <a id="assigning_teacher_fullname"></a>
+            <a id="assigning_teacher_username" hidden></a>
+        </div>
+    </div>
+    <label class="w3-container"><b>@Resource.Taught_subj_info:</b></label>
+    <div class="w3-row">
+        <label class="w3-col w3-container" style="width:50%">@Resource.Taught_subjects</label>
+        <label class="w3-col w3-container" style="width:50%">@Resource.List_subjects</label>
+    </div>
+    <div class="w3-row">
+        <div class="w3-col w3-container" style="width:50%">
+            <select class="w3-input w3-border" id="taught_subj_list">
+               
+            </select>
+        </div>
+        <div class="w3-col w3-container" style="width:50%">
+            <select class="w3-col w3-input w3-border w3-container" id="all_subj_list">
+                
+            </select>
+        </div>  
+    </div>
+    <div class="w3-row">
+        <div class="w3-col w3-container" style="width:50%">
+            <button class="w3-block w3-red w3-btn" id="btn_cancel_subj">@Resource.Cancel_subject</button>
+        </div>
+        <div class="w3-col w3-container" style="width:50%">
+            <button class="w3-block w3-btn w3-theme" id="btn_assign_subj">@Resource.Assing_subj_to_teach</button>
+        </div>
+    </div>
+</div>

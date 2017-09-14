@@ -1,0 +1,39 @@
+﻿.w3-theme {
+    color: #fff;
+    background-color: #3f8a68;
+}
+
+.w3-btn {
+    background-color: #3f8a68;
+    color: #fff;
+    margin: 2px;
+}
+
+.myMenu {
+    margin-bottom: 150px;
+}
+
+.w3-col {
+    padding-top:8px;
+    padding-bottom:8px;
+}
+
+ul.breadcrumb {
+    padding: 8px 16px;
+    list-style: none;
+    background-color: #eee;
+}
+
+ul.breadcrumb li {
+    display: inline;
+}
+
+ul.breadcrumb li + li:before {
+    padding: 8px;
+    color: black;
+    content: "/\00a0";
+}
+
+ul.breadcrumb li a {
+    color: green;
+}

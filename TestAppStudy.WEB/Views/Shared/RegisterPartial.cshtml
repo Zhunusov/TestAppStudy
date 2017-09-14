@@ -1,0 +1,47 @@
+﻿@using Resources;
+
+<div id="id01" class="w3-modal">
+    <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:400px">
+
+        <div class="w3-center">
+            <br>
+            <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
+            <img src="~/Images/user.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
+        </div>
+
+        <form class="w3-container" id="register_form">
+            <div class="w3-section">
+                <label><b>@Resource.Email</b></label>
+                <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="@Resource.Ph_email" id="email" required>
+                <label><b>@Resource.Password</b></label>
+                <input class="w3-input w3-border w3-margin-bottom" type="password" placeholder="@Resource.Ph_password" id="psw" required>
+                <label><b>@Resource.Password_confirm</b></label>
+                <input class="w3-input w3-border w3-margin-bottom" type="password" placeholder="@Resource.Ph_password_confirm" id="psw_confirm" required onchange="compare_password()">
+                <label><b>@Resource.FirstName</b></label>
+                <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="@Resource.Ph_firstname" id="firstname" required>
+                <label><b>@Resource.LastName</b></label>
+                <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="@Resource.LastName" id="lastname" required>
+                <label><b>@Resource.Patronymic</b></label>
+                <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="@Resource.Ph_patronymic" id="patronymic">               
+                <label><b>@Resource.Status</b></label>
+                <select id="selected_role" class="w3-input w3-border w3-margin-bottom" onchange="change_register_form()">
+                    <option>Студент</option>
+                    <option>Преподаватель</option>
+                </select>
+                <div id="id03">
+                    <label><b>@Resource.Study_begining</b></label>
+                    <input class="w3-input w3-border w3-margin-bottom" type="text" id="studystart" placeholder="@Resource.Ph_studystart" required>
+                </div>                
+                <button class="w3-button w3-block w3-theme w3-section w3-padding" type="submit" id="register">@Resource.Btn_register</button>
+            </div>
+        </form>        
+
+        <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+            <button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-button w3-red">@Resource.Btn_cancel</button>
+            <div class="w3-right">
+                <button onclick="change_to_logon_modal()" type="button" class="w3-button w3-light-grey" title="@Resource.Tt_login">@Resource.Btn_have_account</button>
+            </div>
+        </div>
+
+    </div>
+</div>

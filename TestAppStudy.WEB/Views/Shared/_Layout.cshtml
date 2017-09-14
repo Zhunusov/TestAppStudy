@@ -1,0 +1,96 @@
+﻿@using Resources;
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>         
+    
+</head>
+
+<body>
+    <div class="w3-top">
+        <div class="w3-row w3-white w3-padding">  
+            <a class="w3-button w3-hover-white" href='~/Home/Index'><b>@Resource.Project</b></a>
+            <div class="w3-right">
+                <div class="w3-dropdown-hover">
+                    <button class="w3-button w3-white" id="btn_dropdown_lang">@Resource.Language</button>
+                    <div class="w3-dropdown-content w3-bar-block w3-card-4" id="lang_change_content">                        
+                        <a class="w3-bar-item w3-button" id="lang_ru">Русский</a>
+                        <a class="w3-bar-item w3-button" id="lang_en">English</a>                        
+                    </div>
+                </div>
+                @if (!Request.IsAuthenticated)
+                {
+                    <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-theme w3-hover-white">@Resource.Btn_register</button>
+                    <button onclick="document.getElementById('id02').style.display='block'" class="w3-button w3-theme w3-hover-white">@Resource.Btn_login</button>
+                }
+                else
+                {
+                    <a class="w3-button w3-hover-white" onclick="edit_personal_info()" title="@Resource.Tt_personal_info">@Resource.EntryText <b id="current_user">@User.Identity.Name</b><i id="current_user_satus"></i></a>                   
+                    <button class="w3-button w3-theme w3-hover-white" id="logoff">@Resource.Btn_logout</button>
+                }
+
+            </div>
+        </div>
+        <div class="w3-bar w3-theme w3-large" style="z-index:4;height:59px" id="main_menu">
+            <a class="w3-bar-item w3-button w3-left w3-hide-large w3-hover-white w3-large w3-theme w3-padding-16" href="javascript:void(0)" onclick="open_sidebar()">☰</a>            
+        </div>
+    </div>
+    @if (!Request.IsAuthenticated)
+    {
+        <div class="w3-main w3-container" style="height:300px;margin-top:117px;">
+            <div class="w3-center"><p>@Resource.Authorization_ask</p></div>
+        </div>
+    }
+  
+    @if (Request.IsAuthenticated)
+    {
+        Html.RenderPartial("EditInfoPartial");
+    }
+    else
+    {
+        Html.RenderPartial("RegisterPartial");
+        Html.RenderPartial("LoginPartial");
+    } 
+
+    @RenderBody()
+    <div class="w3-container">
+        <footer class="w3-center w3-padding-16 w3-border-top">
+            <p>@Resource.Made_by <a href="https://drive.google.com/open?id=0B1IGWEkeCl24anZoR28yWl9VbFE" title="@Resource.Tt_cv" target="_blank" class="w3-hover-text-green">@Resource.Developer</a></p>
+        </footer>
+    </div>
+    
+    @if (!Request.IsAuthenticated)
+    {
+        <script>
+            document.getElementById('id02').style.display = 'block';
+        </script>
+    }
+
+
+    <script src="~/Scripts/SiteScripts.js"></script>  
+    @if (Request.IsAuthenticated)
+    {
+        <script>
+            $(function () {
+                $.ajax({
+                    url: '/api/account/getuserrole',
+                    type: 'GET',
+                    contentType: 'application/json; charset=utf-8',
+                    success: function (data) {
+                        $("#current_user_satus").text("(" + data + ")");
+                    },
+                    error: function (x, y, z) {
+                        alert(x + '\n' + y + '\n' + z);
+                    }
+                });
+            });            
+        </script>
+    }
+        
+</body>
+</html>

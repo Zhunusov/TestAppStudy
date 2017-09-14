@@ -1,0 +1,212 @@
+﻿@using Resources;
+@{
+    ViewBag.Title = "TeacherArea";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<body>
+    <div class="w3-container" style="margin-top:117px">
+            <script>
+                var strResult = '<a class="w3-bar-item w3-button w3-hide-medium w3-hover-white w3-padding-16 my-nav-head" href="javascript:void(0)" onclick=' + "show_nav(this,'menuSubj')" + '>' + '@Resource.Subjects' + '</a>'
+                $('#main_menu').append(strResult);
+            </script>
+            
+            <div class="w3-sidebar w3-bar-block w3-collapse w3-animate-left" style="z-index:3;width:270px;max-height:350px" id="mySidebar">
+
+                <div class="w3-bar w3-hide-large w3-large">
+                    <a href="javascript:void(0)" onclick="show_nav(this, 'menuSubj')" class="w3-bar-item w3-button w3-theme w3-hover-white w3-padding-16 my-nav-head" style="width:50%">@Resource.Subjects</a>
+                </div>
+
+                <a href="javascript:void(0)" onclick="close_sidebar()" class="w3-button w3-right w3-xlarge w3-hide-large" title="@Resource.Tt_close_menu">×</a>
+
+                <div id="menuSubj" class="myMenu" style="display:none">
+                    <div class="w3-container">
+                        <h3>@Resource.Subjects</h3>
+                    </div>
+                    <a class="w3-bar-item w3-button my-nav" id="nav_list_subjects_teachers">@Resource.List_subjects</a>
+                    <a class="w3-bar-item w3-button my-nav" id="nav_assign_student">@Resource.Assign_student</a>
+                </div>
+
+            </div>
+               
+            <div class="w3-overlay w3-hide-large" onclick="close_sidebar()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+                
+            <div class="w3-main w3-container" style="margin-left:270px">
+                <div class="w3-panel w3-padding-large w3-card-4 w3-light-grey" style="min-height:400px" id="main_panel">
+                    <div class="w3-row">
+                        <ul class="breadcrumb">
+                            <li><a id="title_main_cont_level_1"></a></li>
+                            <li><a id="title_main_cont_level_2"></a></li>
+                        </ul>
+                    </div>
+                    <div id="data_result">
+                    </div>
+                    @{ Html.RenderPartial("AssignStudentPartial"); }
+                </div>
+            </div>
+        @{ Html.RenderPartial("AddCommentPartial"); } 
+    </div>
+    <script>
+        $(function () {
+            $('#nav_list_subjects_teachers').click(function (e) {
+                e.preventDefault();
+                $("#assign_student_info_container").css("display", "none");
+                $("#assign_student_container").css("display", "none");
+                var username = $("#current_user").text();
+                $('#data_result').empty();
+                var count = 1;
+                $.ajax({
+                    url: '/api/teacher/getsubjectsbyteacher',
+                    type: 'POST',
+                    contentType: 'application/json; charset=utf-8',
+                    data: JSON.stringify(username),
+                    success: function (data) {
+                        var strResult = '<div class="w3-row">' +
+                        '<label class="w3-col w3-container" style="width:3%"><b>№</b></label>' +
+                        '<label class="w3-col w3-container" style="width:25%"><b>' + '@Resource.Title_subject' + '</b></label>' +
+                        '<label class="w3-col w3-container" style="width:25%"><b>' + '@Resource.Subj_description' + '</b></label>' +
+                        '<label class="w3-rest"></label>' +
+                        '</div>';
+                        $('#data_result').append(strResult);
+                        for (var i in data) {
+                            strResult = '<div class="w3-panel w3-card-4">' +
+                                '<div class="w3-row">' +
+                                '<div class="w3-col w3-container" style="width:3%">' + count + '</div>' +
+                                '<div class="w3-col w3-container title" style="width:25%">' + data[i].Title + '</div>' +
+                                '<div class="w3-col w3-container" style="width:25%">' + data[i].Description + '</div>' +
+                                '<div class="w3-rest">' +
+                                    '<div class="w3-right w3-button w3-btn" onclick="load_comments(this)">' + '@Resource.Btn_show_comments' + '</div>' +
+                                    '<div class="w3-right w3-button w3-btn w3-indigo" onclick="add_comment(this)">' + '@Resource.Btn_add_comment' + '</div>' +
+                                '</div>' +
+                                '</div>' +
+                                '<div class="w3-hide comments">' +
+                                '</div>';
+
+                            $('#data_result').append(strResult);
+                            count++;
+                        }
+                    },
+                    error: function (x, y, z) {
+                        alert(x + '\n' + y + '\n' + z);
+                    }
+                });
+            });
+        });
+
+        function load_comments(item) {
+            if ($(item).closest("div.w3-panel").contents().filter(".comments").index($(".w3-show")) == -1) {
+                $(item).closest("div.w3-panel").contents().filter(".comments").addClass("w3-show")
+                $(item).text("@Resource.Btn_hide_comments");
+                $(item).closest("div.w3-panel").contents().filter(".comments").empty();
+                var data = {
+                    Title: $(item).closest("div.w3-panel").find("div.title").text(),
+                    UserName: $("#current_user").text()
+                };
+                $.ajax({
+                    url: '/api/teacher/getsubjectnotes',
+                    type: 'POST',
+                    contentType: 'application/json; charset=utf-8',
+                    data: JSON.stringify(data),
+                    success: function (notes) {
+                        for (var i in notes) {
+                            var strResult = '<div class="w3-row w3-panel w3-card-4 comment">' +
+                                '<div class="w3-col w3-container" style="width:10%">' +
+                                    '<img src="/Images/user.png" alt="Avatar" style="width:100%" class="w3-circle">' +
+                                '</div>' +
+                                '<div class="w3-container w3-rest">' +
+                                    '<b>' + notes[i].UserName + '</b>' +
+                                    '<p>' + notes[i].Description + '</p>' +
+                                '</div>' +
+                            '</div>';
+
+                            $(item).closest("div.w3-panel").contents().filter(".comments").append(strResult);
+                        }
+                    },
+                    error: function (x, y, z) {
+                        alert(x + '\n' + y + '\n' + z);
+                    }
+                });
+            }
+            else {
+                $(item).closest("div.w3-panel").contents().filter(".comments").removeClass("w3-show");
+                $(item).text("@Resource.Btn_show_comments");
+            }
+        }
+
+        $(function () {
+            $("#nav_assign_student").click(function (e) {
+                e.preventDefault();
+                $('#data_result').empty();
+                var username = $("#current_user").text();
+                $.ajax({
+                    url: '/api/teacher/getsubjectsbyteacher',
+                    type: 'POST',
+                    contentType: 'application/json; charset=utf-8',
+                    data: JSON.stringify(username),
+                    success: function (data) {
+                        $("#assign_subject").empty();
+                        var strResult = '<option value="" selected hidden>' + '@Resource.Choose_subject' + '</option>';
+                        $('#assign_subject').append(strResult);
+                        for (var i in data) {
+                            strResult = '<option>' + data[i].Title + '</option>';
+                            $('#assign_subject').append(strResult);
+                        }
+                        $("#assign_student_info_container").css("display", "none");
+                        $("#assign_student_container").css("display", "block");
+                    },
+                    error: function (x, y, z) {
+                        alert(x + '\n' + y + '\n' + z);
+                    }
+                });
+            });
+        });
+
+        function get_students_assign_info(subjectTitle) {
+            $("#assigned_student_list").empty();
+            $("#all_student_list").empty();
+            $.ajax({
+                url: '/api/teacher/getstudentsofsubject',
+                type: 'POST',
+                contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify(subjectTitle),
+                success: function (data) {
+                    var strResult = '<option value="" selected hidden>' + '@Resource.Choose_student' + '</option>';
+                    $("#assigned_student_list").append(strResult);
+                    for (var i in data) {
+                        strResult = '<option value="' + data[i].UserName + '">' + data[i].LastName + " " + data[i].FirstName + " " + data[i].Patronymic +'</option>';
+                        $("#assigned_student_list").append(strResult);
+                    }
+
+                    $(function () {
+                        $.ajax({
+                            url: '/api/teacher/getallstudents',
+                            type: 'GET',
+                            contentType: 'application/json; charset=utf-8',
+                            success: function (data) {
+                                var strResult = '<option value="" selected hidden>' + '@Resource.Choose_student' + '</option>';
+                                $("#all_student_list").append(strResult);
+                                for (var i in data) {
+                                    strResult = '<option value="' + data[i].UserName + '">' + data[i].LastName + " " + data[i].FirstName + " " + data[i].Patronymic + '</option>';
+                                    $("#all_student_list").append(strResult);
+                                }
+                            },
+                            error: function (x, y, z) {
+                                alert(x + '\n' + y + '\n' + z);
+                            }
+                        });
+                    });
+                    $("#assign_student_info_container").css("display", "block");
+                },
+                error: function (obj, error, status) {
+                    var response = jQuery.parseJSON(obj.responseText);
+                    if (response['ModelState']) {
+                        $.each(response['ModelState'], function (index, item) { alert(item + '\n'); });
+                    }
+                }
+            });
+        }
+
+    </script>
+</body>
+
+

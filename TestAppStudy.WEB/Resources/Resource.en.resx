@@ -1,0 +1,354 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Add_student" xml:space="preserve">
+    <value>Adding new student</value>
+  </data>
+  <data name="Add_subject" xml:space="preserve">
+    <value>Adding new subject</value>
+  </data>
+  <data name="Add_teacher" xml:space="preserve">
+    <value>Adding new teacher</value>
+  </data>
+  <data name="Alert_psw_not_match" xml:space="preserve">
+    <value>Your password and confirmation password do not match.</value>
+  </data>
+  <data name="Assign_subject" xml:space="preserve">
+    <value>Assigning subject</value>
+  </data>
+  <data name="Assign_subj_tech" xml:space="preserve">
+    <value>Assigning subject and teacher</value>
+  </data>
+  <data name="Authorization_ask" xml:space="preserve">
+    <value>Please log in to access the site.</value>
+  </data>
+  <data name="Btn_cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Btn_have_account" xml:space="preserve">
+    <value>I've had an account already</value>
+  </data>
+  <data name="Btn_login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="Btn_logout" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="Btn_not_have_account" xml:space="preserve">
+    <value>I haven't had an account yet</value>
+  </data>
+  <data name="Btn_register" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="Btn_save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Developer" xml:space="preserve">
+    <value>Artur Zhunusov</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="EntryText" xml:space="preserve">
+    <value>You are logged in as</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>FirstName</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>LastName</value>
+  </data>
+  <data name="List_students" xml:space="preserve">
+    <value>All students list</value>
+  </data>
+  <data name="List_subjects" xml:space="preserve">
+    <value>All subjects list</value>
+  </data>
+  <data name="List_teachers" xml:space="preserve">
+    <value>All teachers list</value>
+  </data>
+  <data name="Made_by" xml:space="preserve">
+    <value>Made by</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="Password_confirm" xml:space="preserve">
+    <value>Password Confirmation</value>
+  </data>
+  <data name="Patronymic" xml:space="preserve">
+    <value>Patronymic</value>
+  </data>
+  <data name="Ph_email" xml:space="preserve">
+    <value>Enter email</value>
+  </data>
+  <data name="Ph_firstname" xml:space="preserve">
+    <value>FirstName</value>
+  </data>
+  <data name="Ph_lastname" xml:space="preserve">
+    <value>LastName</value>
+  </data>
+  <data name="Ph_password" xml:space="preserve">
+    <value>Enter password</value>
+  </data>
+  <data name="Ph_password_confirm" xml:space="preserve">
+    <value>Password confirmation</value>
+  </data>
+  <data name="Ph_patronymic" xml:space="preserve">
+    <value>Patronymic</value>
+  </data>
+  <data name="Ph_studystart" xml:space="preserve">
+    <value>Date of start training</value>
+  </data>
+  <data name="Ph_username" xml:space="preserve">
+    <value>Enter username</value>
+  </data>
+  <data name="Project" xml:space="preserve">
+    <value>PROJECT "EDUCATIONAL PROCESS"</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Students" xml:space="preserve">
+    <value>STUDENTS</value>
+  </data>
+  <data name="Study_begining" xml:space="preserve">
+    <value>Begining of study</value>
+  </data>
+  <data name="Subjects" xml:space="preserve">
+    <value>SUBJECTS</value>
+  </data>
+  <data name="Teachers" xml:space="preserve">
+    <value>TEACHERS</value>
+  </data>
+  <data name="Tt_close_menu" xml:space="preserve">
+    <value>Close menu</value>
+  </data>
+  <data name="Tt_cv" xml:space="preserve">
+    <value>Get CV</value>
+  </data>
+  <data name="Tt_login" xml:space="preserve">
+    <value>Click to login</value>
+  </data>
+  <data name="Tt_personal_info" xml:space="preserve">
+    <value>Personal information editing</value>
+  </data>
+  <data name="Tt_register" xml:space="preserve">
+    <value>Click to register</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>UserName</value>
+  </data>
+  <data name="Btn_edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Btn_remove" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="Btn_no" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Btn_yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="Assing_subj_to_teach" xml:space="preserve">
+    <value>Assign subject</value>
+  </data>
+  <data name="Btn_add" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="Cancel_subject" xml:space="preserve">
+    <value>Cancel subject</value>
+  </data>
+  <data name="Personal_info" xml:space="preserve">
+    <value>Personal information</value>
+  </data>
+  <data name="Ph_subj_description" xml:space="preserve">
+    <value>Enter short subject description</value>
+  </data>
+  <data name="Ph_subj_title" xml:space="preserve">
+    <value>Enter the name of subject</value>
+  </data>
+  <data name="Subj_description" xml:space="preserve">
+    <value>Subject description</value>
+  </data>
+  <data name="Taught_subjects" xml:space="preserve">
+    <value>Taught subjects</value>
+  </data>
+  <data name="Taught_subj_info" xml:space="preserve">
+    <value>Taught subjects information</value>
+  </data>
+  <data name="Title_stu_name" xml:space="preserve">
+    <value>Student's name</value>
+  </data>
+  <data name="Title_subject" xml:space="preserve">
+    <value>Subject's title</value>
+  </data>
+  <data name="Title_teach_name" xml:space="preserve">
+    <value>Teacher's fullname</value>
+  </data>
+  <data name="Choose_student" xml:space="preserve">
+    <value>Choose a student</value>
+  </data>
+  <data name="Choose_subject" xml:space="preserve">
+    <value>Choose a subject</value>
+  </data>
+  <data name="Choose_teacher" xml:space="preserve">
+    <value>Choose a teacher</value>
+  </data>
+  <data name="Student_subj_list" xml:space="preserve">
+    <value>List of student subjects (subject - teacher)</value>
+  </data>
+  <data name="Btn_cancel_subj" xml:space="preserve">
+    <value>Cancel subject</value>
+  </data>
+  <data name="Assign_student" xml:space="preserve">
+    <value>Assign student</value>
+  </data>
+  <data name="Btn_add_comment" xml:space="preserve">
+    <value>Add comment</value>
+  </data>
+  <data name="Btn_hide_comments" xml:space="preserve">
+    <value>Hide comments</value>
+  </data>
+  <data name="Btn_show_comments" xml:space="preserve">
+    <value>Show comments</value>
+  </data>
+  <data name="Comment_description" xml:space="preserve">
+    <value>Comment description</value>
+  </data>
+  <data name="Ph_comment_description" xml:space="preserve">
+    <value>Enter description of comment</value>
+  </data>
+  <data name="Private" xml:space="preserve">
+    <value>Private</value>
+  </data>
+  <data name="Public" xml:space="preserve">
+    <value>Public</value>
+  </data>
+  <data name="Assign_student_to_subj" xml:space="preserve">
+    <value>Assigning of students</value>
+  </data>
+  <data name="List_assigned_students" xml:space="preserve">
+    <value>Assigned students list</value>
+  </data>
+</root>
